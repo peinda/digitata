@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+  integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+  crossorigin="anonymous">
+      <title>{% block title %}DIGITATA-IT ENTREPRISE DE SERVICE DU NUMERIQUE !{% endblock %}</title>
+
+  <!-- MDB icon -->
+  <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <!-- Bootstrap core CSS -->
+ <!-- <link rel="stylesheet" href="css/bootstrap.min.css">-->
+  <!-- Material Design Bootstrap -->
+  <link rel="stylesheet" href="css/mdb.min.css">
+  <!-- Your custom styles (optional) -->
+  <link rel="stylesheet" href="css/style.min.css">
+
+</head>
+<body>
+
+  <!-- Start your project here-->  
+  <!--Main Navigation-->
+  <!--Grid column-->
+            
+
+            <!--Grid column-->
+<div class="container-fluide fixed-top">
+  <header class="blog-header py-3  text-white "  style="  background-color: darkblue;  ">
+    <div class="row mx-2 ">
+         <div class="col  ">
+          <a  href="#" class="text-white" ><i class="fab fa-linkedin"></i></a>
+          <a  href="#" class="text-white" ><i class="fab fa-facebook"></i></a>
+              <a  href="#" class="text-white"><i class="fab fa-youtube-square"></i></a>
+
+    </div>
+    <div class="col text-white"><i class="fas fa-phone-alt"> 06.58.29.44.36</i></div>
+    <div class="col text-white"><a  class="text-white" href="mailto:contact@digitata-it.fr"><i class="fas fa-envelope-square"> contact@digitata-it.fr</i></a></div>
+    <div class="col  ">
+        {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+            {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('admin_listesOffres') }}" class="text-white"><i class="far fa-address-card"> Publier une offre</i></a> |
+            {% endif %}
+        <a href="" class="text-white"><i class="far fa-address-card"> Mon profil</i></a> |
+        <a href="{{path('logout')}}" class="text-white"><i class="fas fa-sign-out-alt">Deconnecter</i></a>
+        {% else %}
+    <a href="{{ path('user_register') }}" class="text-white" ><i class="far fa-address-card"> Membre DG</i></a>
+        {% endif %}
+    </div>
+    <div class="col"><a  class="text-white" href="{{path('contact')}}"><i class="fas fa-address-book"> Nous contacter</i></a></div>
+  </div>
+  </header>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fs-6">
+          <div class="container">
+            <a class="navbar-brand"
+              href="{{ path('accueil') }}"><img class="d-block w-10" style="height:50px;" src="{{ asset('img/logo.jpg') }}" alt="Second slide"></a>
+            <button class="navbar-toggler" type="button"
+              data-toggle="collapse" data-target="#navbarResponsive"
+              aria-controls="navbarResponsive" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon">
+                <div style=" width: 35px;  height: 5px;  background-color: darkblue;  margin: 6px 0;"></div>
+               <div style=" width: 35px;  height: 5px;  background-color: darkblue;  margin: 6px 0;"></div>
+                <div style=" width: 35px;  height: 5px;  background-color: darkblue;  margin: 6px 0;"></div></span>
+            </button>
+            <div class="collapse navbar-collapse font-weight-bold" id="navbarResponsive">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                <li class="nav-item"><a class="nav-link"
+                  href="{{ path('accueil') }}">Accueil
+                </a></li>
+                <li class="nav-item"><a class="nav-link"
+                  href="{{ path('automatisation') }}">Automatisation </a></li>
+                  <li class="nav-item"><a class="nav-link"
+                  href="{{ path('automatisation') }}">Web et Mobile </a></li>
+                <li class="nav-item"><a class="nav-link"
+                  href="{{ path('digitata') }}">DIGITATA-IT</a></li>
+                      
+              <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Nos pôles
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="{{ path('uipath') }}">RPA-UIPath</a>
+              <a class="dropdown-item" href="{{ path('vba') }}">VBA-Office</a>
+              <a class="dropdown-item" href="{{ path('formation') }}">UIPath-Formation</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{{ path('liste_offres') }}">Recrutement</a>
+            </div>
+            </li>
+                
+                <li class="nav-item btn btn-primary " type="button"><a class="nav-link" 
+                  href="{{path('contact')}}">||Prendre un RDV</a></li>
+              </ul>
+            </div>
+          </div>
+          
+        </nav>
+   
+</div>
+
+
+      
+   
+
+<!--Main Navigation-->
+<!--EN tete-->
+<div class="container-fluid" style="height:20px;"></div>
+<!--EN tete-->
+<!--Main layout-->
+<div class="container-fluid" style="height:70px;"></div>
+
+<main class="pt-5" id="features">
+    {# {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-dismissible{{ label }}">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>{{ message }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %} #}
+{% block main %}
+          <!--Main container-->
+  <div class="container-fluid">
+       
+<section >
+          <!--Grid row-->
+          <div >
+            
+            <!--Grid column-->
+            <div class="col-lg-12 my-4">
+              
+              <!--Carousel Wrapper-->
+              <div id="carousel-example-1z" class="carousel slide carousel-fade carousel-fade " data-ride="carousel">
+                <!--Indicators-->
+                <ol class="carousel-indicators">
+                  <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
+                  <li data-target="#carousel-example-1z" data-slide-to="1"></li>
+                  <li data-target="#carousel-example-1z" data-slide-to="2"></li>
+                </ol>
+                <!--/.Indicators-->
+                <!--Slides-->
+                <div class="carousel-inner z-depth-1-half" role="listbox" >
+                
+                  <!--First slide-->
+                  <div class="carousel-item active">
+                    <img class="d-block w-100" src="{{ asset('img/1-min.jpg') }}" alt="First slide">
+                     <a class="btn btn-outline-purple" href="https://www.youtube.com/watch?v=5qWybkhln7o&ab_channel=Digitata-Itentreprise" target="_blank" role="button">Plus d'infor! Visitez notre page youtube</a>
+                     Concentrez-vous sur votre cœur de métier avec la digitalisation
+                  </div>
+                  <!--/First slide-->
+                  <!--Second slide-->
+                  <div class="carousel-item">
+                    <img class="d-block w-100" src="{{ asset('img/2-min.jpg') }}" alt="Second slide">
+                     <a class="btn btn-outline-purple" href="https://www.youtube.com/watch?v=5qWybkhln7o&ab_channel=Digitata-Itentreprise" target="_blank" role="button">Plus d'infor! Visitez notre page youtube</a>
+                             Concentrez-vous sur votre cœur de métier avec la digitalisation
+                  </div>
+                   <div class="carousel-item">
+                    <img class="d-block w-100" src="{{ asset('img/3-min.jpg') }}" alt="Second slide">
+                     <a class="btn btn-outline-purple" href="https://www.youtube.com/watch?v=5qWybkhln7o&ab_channel=Digitata-Itentreprise" target="_blank" role="button">Plus d'infor! Visitez notre page youtube</a>
+                            Concentrez-vous sur votre cœur de métier avec la digitalisation
+                  </div>
+                  <!--/Second slide-->
+                  <!--Third slide-->
+                  <div class="carousel-item">
+                    <img class="d-block w-100" src="{{ asset('img/4-min.jpg') }}" alt="Third slide">
+                     <a class="btn btn-outline-purple" href="https://www.youtube.com/watch?v=5qWybkhln7o&ab_channel=Digitata-Itentreprise" target="_blank" role="button">Plus d'infor! Visitez notre page youtube</a>
+                             Concentrez-vous sur votre cœur de métier avec la digitalisation
+                  </div>
+                   <div class="carousel-item">
+                    <img class="d-block w-100" src="{{ asset('img/5-min.jpg') }}" alt="Third slide">
+                     <a class="btn btn-outline-purple" href="https://www.youtube.com/watch?v=5qWybkhln7o&ab_channel=Digitata-Itentreprise" target="_blank" role="button">Plus d'infor! Visitez notre page youtube</a>
+                             Concentrez-vous sur votre cœur de métier avec la digitalisation
+                  </div>
+                  <!--/Third slide-->
+                </div>
+                <!--/.Slides-->
+                <!--Controls-->
+                <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+                <!--/.Controls-->
+              </div>
+              <!--/.Carousel Wrapper-->             
+            </div>
+            <!--Grid column-->
+            
+            <!--Grid column-->
+            
+            <!--Grid column-->
+            
+          </div>
+          <!--Grid row-->
+          
+          <!--Row features-->
+          <div class="row features-small mt-5 wow fadeIn">
+            
+            <!--First column-->
+            
+          <!--/Row features-->
+          
+          <!--Call to action-->
+          <div class="text-center pt-4">
+            <a class="btn btn-outline-purple" href="#" target="_blank" role="button">Télécharger la plaquette
+              <i class="fas fa-download ml-2"></i>
+            </a>
+            <a class="btn btn-outline-secondary" href="#" target="_blank" role="button">Demande de devis
+              <i class="far fa-file-alt ml-2"></i>
+            </a>
+          </div>
+          <!--/.Call to action-->
+          </div>
+</section>
+        <!---->
+
+<div class="container py-5 text-justify" id="featured-3">
+  <h2 class="pb-2 border-bottom">Nos départements</h2>
+  <div class="row g-5 py-5 ">
+    <div class="feature col-md-4  ">
+    
+       <a class="navbar-brand"
+              href="#projects"><img class="d-block " style="height:115px;" src="{{ asset('img/3-min.jpg') }}" alt="Second slide"></a>
+
+      <h2>Analyse fonctionnelle</h2>
+      <p>DIGITATA-IT est plus qu'un simple prestataire de services techniques. Elle travaille également en étroite collaboration avec ses clients afin de leur apporter un soutien et des conseils dans leurs projets.</p>
+      <a href="{{ path('departement') }}" class="icon-link">
+       
+       <button type="button" class="text-white" style="  background-color: darkblue;  "> EN Savoir Plus</button>
+      </a>
+    </div>
+    <div class="feature col-md-4">
+       <a class="navbar-brand"
+              href="#projects"><img class="d-block " style="height:110px;" src="{{ asset('img/4-min.jpg') }}" alt="Second slide"></a>
+
+      <h2>Conception</h2>
+      <p>S’inscrivant dans une logique de performance et de réalisation de vos attentes, notre département conception travaille en mode Agile afin de vous concevoir l’outil le plus efficace et adapté à votre environnement.</p>
+      <a href="{{ path('departement') }}" class="icon-link">
+        <button type="button" class="text-white" style="  background-color: darkblue;  "> EN Savoir Plus</button>
+      </a>
+    </div>
+    <div class="feature col-md-4">
+      <a class="navbar-brand"
+              href="#projects"><img class="d-block" style="height:110px;" src="{{ asset('img/5-min.jpg') }}" alt="Second slide"></a>
+
+      <h2>Développement</h2>
+      <p>Véritable axe central de DIGITATA-IT, notre département technique réalise la solution technique, assure l'assistance et le support technique auprès des clients en vue de prévenir et de résoudre des problèmes techniques selon des impératifs de qualité et de délais.</p>
+      <a href="{{ path('departement') }}" class="icon-link">
+        <button type="button" class="text-white" style="  background-color: darkblue;  "> EN Savoir Plus</button>
+      </a>
+    </div>
+  </div>
+</div>
+<!---->
+          <!--Section Features-->
+<section class="text-justify ">
+          
+          <!-- Heading -->
+            
+          <!--Grid row-->
+<div class="container py-5" id="hanging-icons">
+  <h2 class="pb-2 border-bottom">Nos Pôles de Création/Formation</h2>
+  <div class="row g-5 py-5">
+    <div class="col-md-4 d-flex align-items-start">
+     
+      <div>
+         <i class="fas fa-robot fa-4x text-primary"></i>
+        <h2>RPA-UIPath</h2>
+        <p>Robotic Process Automation (RPA) est une technologie permettant aux logiciels informatiques d’imiter (ou de simuler)
+         et d’intégrer des actions généralement effectuées par des humains avec des systèmes numériques.</p>
+        <a href="{{ path('uipath') }}" class="icon-link">
+        <button type="button" class="text-white" style="  background-color: darkblue;  "> EN Savoir Plus</button>
+      </a>
+      </div>
+    </div>
+    <div class="col-md-4 d-flex align-items-start">
+      <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+
+      </div>
+      <div>
+   
+         <i class="fas fa-file-csv fa-4x text-primary"></i>
+        <h2>VBA-Excel</h2>
+        <p>Visual Basic application est une implémentation de Microsoft Visual basic.
+         Le principe de la VBA est de mettre de l’intelligence dans Excel pour obtenir une information fiable et pérenne.</p>
+         <a href="{{ path('vba') }}" class="icon-link">
+       <button type="button" class="text-white" style="  background-color: darkblue;  "> EN Savoir Plus</button>
+      </a>
+      </div>
+    </div>
+    <div class="col-md-4 d-flex align-items-start">
+      <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+
+      </div>
+      <div>
+      <i class="fab fa-internet-explorer fa-4x text-primary"></i>|<i class="fas fa-mobile-alt fa-4x text-primary"></i>
+        <h2>Web et Mobile</h2>
+        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+         <a href="#" class="icon-link">
+        <button type="button" class="text-white" style="  background-color: darkblue;  "> EN Savoir Plus</button>
+      </a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="px-4 text-center" >
+  <i class="fas fa-user-graduate fa-4x text-primary"></i>--<i class="fas fa-code fa-4x text-primary "></i>
+  <h1 class="display-5 fw-bold">DIGITATA-IT </h1>
+  <div class="col-lg-6 mx-auto">
+    <p class="lead mb-4">Envie de prendre part à l'aventure ou d'être formé dans les technologies du futur! Rejoignez nous.</p>
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+       <a href="#" class="icon-link"><button type="button" class="btn  btn-lg px-4 me-sm-3 text-white" style="  background-color: darkblue;  ">Recrutement</button> </a>
+       <a href="{{ path('formation') }}" class="icon-link"><button type="button" class="btn btn-outline-secondary btn-lg px-4">Formation</button> </a>
+    </div>
+  </div>
+</div>
+          <!--Grid row-->
+          
+</section>
+      <!--Section Features-->
+
+
+        
+</div>
+<br />
+<div class="row mb-2 mx-3">
+<h1 class="text-center text-primary">Nos Partenaires</h1>
+    <div class="col-md-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static text-white" style="  background-color: darkblue;  ">
+
+      
+          <p class="card-text mb-auto">Exigences IT, cabinet de conseil en recrutement dédié à l’accompagnement de l’efficience IT et digitale. contact@exigences-it.com</p>
+       
+        </div>
+        <div class="col-auto d-none d-lg-block">
+         <img class="d-block" style="height:210px;" src="{{ asset('img/Exigences-IT_Partenaire_DIGITATA-IT 2-min.jpg') }}" alt="Second slide">
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+      <div class="col-auto d-none d-lg-block">
+         <img class="d-block" style="height:210px;" src="{{ asset('img/cci.jpg') }}" alt="Second slide">
+
+        </div>
+        <div class="col p-4 d-flex flex-column position-static  text-white" style="  background-color: darkblue;  ">
+
+      
+          <p class="card-text mb-auto">CCI du Val-d'Oise - Chambre de commerce et d'industrie - CFE Cergy - CCI Cergy - Service aux entreprises et commerces Nous restons toujours mobilisés pour vous soutenir et vous accompagner.</p>
+       
+        </div>
+        
+      </div>
+    </div>
+   
+  </div>
+
+          <!--Main container-->
+  {% endblock %}
+
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-dismissible{{ label }}">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong class="alert-success">{{ message }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+</main>
+<!--Main layout-->
+
+<!--Footer-->
+<!-- Footer -->
+
+      <footer class="page-footer font-small mt-5 text-white" style="  background-color: darkblue;  ">      
+      
+      <!-- Footer links -->
+      <div class="secondary-color">
+        
+        <div class="container">
+          <!--Grid row-->
+          <div class="row py-4 d-flex align-items-center">
+            
+            <!--Grid column-->
+            <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+              
+              <a class="mr-4 text-white"  href="#">
+                About Us
+              </a>
+              
+              <a class="mr-4 text-white"  href="#">
+                Blog
+              </a>
+              
+              <a class="mr-4 text-white"  href="#">
+                Terms
+              </a>
+              
+              <a class="text-white"  href="#">
+                Privacy
+              </a>              
+              
+            </div>
+            <!--Grid column-->
+            
+            <!--Grid column-->
+            <div class="col-md-6 col-lg-7  text-md-right ">
+              <!--Facebook-->
+              <a class="fb-ic ml-0 text-white" >
+                <i class="fab fa-facebook white-text mr-4"> </i>
+              </a>
+              <!--Twitter-->
+              <a class="tw-ic text-white">
+                <i class="fab fa-twitter white-text mr-4"> </i>
+              </a>
+              <!--Google +-->
+              <a class="vkon-ic text-white">
+                <i class="fab fa-vk white-text mr-4"> </i>
+              </a>
+              <!--Linkedin-->
+              <a class="li-ic text-white">
+                <i class="fab fa-linkedin white-text mr-4"> </i>
+              </a>
+              <!--Instagram-->
+              <a class="ins-ic text-white">
+                <i class="fab fa-instagram white-text mr-lg-4"> </i>
+              </a>
+            </div>
+            <!--Grid column-->
+            
+          </div>
+          <!--Grid row-->
+        </div>
+      </div>
+      <!-- Footer links --> 
+      
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3">© 2020 Copyright <a href="digitata-it" target="_blank" rel="noopener">DIGITATA-IT@2021</a> 
+        
+      </div>
+      <!-- Copyright -->
+
+      
+    </footer>
+    <!-- Footer --> 
+<!--Footer-->
+  <!-- End your project here-->
+  {% block javascripts %}
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+    crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/d86d41d750.js" crossorigin="anonymous"></script>
+    {% endblock %}
+  <!-- jQuery -->
+  <!--{<script type="text/javascript" src="js/jquery.min.js"></script>-->
+    <!-- Bootstrap tooltips -->
+    <!-- <script type="text/javascript" src="js/popper.min.js"></script>-->
+    <!-- Bootstrap core JavaScript -->
+   <!--  <script type="text/javascript" src="js/bootstrap.min.js"></script>-->
+    <!-- MDB core JavaScript -->
+    <!-- <script type="text/javascript" src="js/mdb.min.js"></script>-->
+    <!-- Your custom scripts (optional) -->
+   <!--  <script type="text/javascript"></script>}-->
+</body>
+</html>

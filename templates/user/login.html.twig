@@ -1,0 +1,32 @@
+{% extends 'layeout.html.twig' %}
+
+{% block title %}
+Page de connexion
+{% endblock %}
+
+{% block main %}
+    <div class="container-fluid" style="height:70px;"></div>
+    <div class="col-10 mx-auto col-lg-5 " style="font-weight: bold">
+
+        <form class="p-5 border rounded-3 bg-light"  method="post">
+            <label for="username" class="form-label">Pseudo :</label>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="username" name="_username" aria-describedby="username">
+            </div>
+            <label for="password" class="form-label">Password :</label>
+            <div class="form-floating mb-3">
+                <input type="password" class="form-control" id="password" name="_password">
+            </div>
+            <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" value="remember-me"> se souvenir de moi
+                </label>
+            </div>
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Connexion</button>
+            <hr class="my-4">
+            <small class="text-muted">En cliquant sur connexion vous acceptez notre condition d'utilisation et de vente</small>
+        </form>
+    </div>
+
+{% endblock %}
+

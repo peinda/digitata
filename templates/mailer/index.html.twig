@@ -1,0 +1,53 @@
+{% extends 'layeout.html.twig' %}
+{% block title %} Vous êtes sur la page de contact{% endblock %}
+
+{% block main %}
+
+<div class="jumbotron">
+    <div class="container">
+        {# {% for label, messages in app.flashes %}
+        {% for message in messages %}
+        <div class="alert alert-dismissible{{ label }}">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong class="alert-success">{{ message }}</strong>
+    </div>
+    {% endfor %}
+    {% endfor %} #}
+        {% if not contactForm.vars.valid %}
+        <div class="alert alert-danger">
+            Le formulaire n'est pas rempli correctement
+        </div>
+        {% endif %}
+
+        <div class="row " style="font-weight: bold">
+
+            <!---->
+            <div class="col-md-6 text-center text-lg-start"  id="contactForm">
+                <h4 class="text-center">Page de contact</h4>
+                {{ form_start(contactForm) }}
+
+                   <div class="col">{{ form_row(contactForm.firstname) }}</div>
+                   <div class="col">{{ form_row(contactForm.lastname) }}</div>
+
+            </div>
+            <!---->
+            <div class="col-md-6 text-center text-lg-start">
+                <div class="col">{{ form_row(contactForm.phone) }}</div>
+                <div class="col">{{ form_row(contactForm.email) }}</div>
+
+                {{ form_rest(contactForm) }}
+
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+
+                    <button class=" btn btn-lg btn-primary"  type="submit">Envoyer</button>
+                </div>
+                {{ form_end(contactForm) }}
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

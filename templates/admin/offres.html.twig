@@ -1,0 +1,96 @@
+{% extends 'layeout.html.twig' %}
+
+{% block main %}
+
+    <div class="container col-xl-10 px-4 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-3 py-3S">
+
+            <div class="col-lg-3" style="text-align: justify; font-size: 1.2em; background-color: darkblue;" >
+                <div class="d-flex flex-column align-items-stretch bg-white" style="width: 380px; " >
+                    <div class="list-group list-group-flush border-bottom scrollarea" >
+                        <a href="{{ path('admin_listesOffres')}}" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
+                            <div class="d-flex w-100 "  >
+                                <strong class="mb-1 " >Gestion des offres et candidats</strong>
+                            </div>
+                        </a>
+                        <a href="{{ path('admin_candidats')}}" class="list-group-item list-group-item-action py-3 lh-tight">
+                            <div class="d-flex w-100 align-items-center justify-content-between">
+                                <strong class="mb-1">Liste des Candidats</strong>
+                            </div>
+                        </a>
+                        <a href="{{ path('admin_offres')}}" class="list-group-item list-group-item-action py-3 lh-tight">
+                            <div class="d-flex w-100 align-items-center justify-content-between">
+                                <strong class="mb-1">Publier une offre</strong>
+                            </div>
+                        </a>
+
+                        <a href="{{ path('logout')}}" class="list-group-item list-group-item-action py-3 lh-tight">
+                            <div class="d-flex w-100 align-items-center justify-content-between">
+                                <strong class="mb-1">Deconnexion</strong>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action py-3 lh-tight">
+                            <div class="d-flex w-100 align-items-center justify-content-between">
+                                <strong class="mb-1">Ecrire un message</strong>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action py-3 lh-tight" aria-current="true">
+                            <div class="d-flex w-100 align-items-center justify-content-between">
+                                <strong class="mb-1">Boite de réception</strong>
+                            </div>
+
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action py-3 lh-tight">
+                            <div class="d-flex w-100 align-items-center justify-content-between">
+                                <strong class="mb-1">Boite d'envoi</strong>
+                            </div>
+                        </a>
+
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-10 col-sm-8 col-lg-9">
+                <div class="container py-5" id="featured-3">
+
+                    <div class="row g-5 py-5">
+                        {% for offre in offres %}
+                            <div class="feature col-md-6">
+                                <div class="feature-icon bg-primary bg-gradient" style="  background-color: darkblue;  ">
+                                    <svg class="bi" width="480px" height="3em" style="  background-color: darkblue;  "><use xlink:href="#collection"/></svg>
+                                </div>
+                                <h2>{{ offre.posteRecherche }}</h2>
+                                <div class="row justify-content-around">
+                                    <div class="col-6">
+                                        <p><b>Exp souhaitée</b>: <em>{{ offre.skills }}</em></p>
+                                        <p><b>Poste recherché</b>: <em>{{ offre.posteRecherche }}</em></p>
+                                        <p><b>Nombre de candidats</b>: <em>{{ offre.candidats|length }}</em></p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p><b>Adresse</b>: <em>{{ offre.adresse }}</em></p>
+                                        <p><b>Contrat</b>: <em>{{ offre.contratType }}</em></p>
+                                        <p><b>Debut</b>: <em>{{ offre.begginingAT |date("Y-m-d")  }}</em></p>
+                                    </div>
+                                </div>
+                                <p><b>Description de l'offre</b>: <em>{{ offre.description }}</em></p>
+                                <a href="{{ path('offre_detail', {'id': offre.id})}}" class="icon-link">
+                                    En savoir plus
+                                </a> <br>
+
+                                <a href="{{ path('offre_update', {'id': offre.id})}}" class="icon-link">
+                                    Modifier l'annonce
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <b><a href="{{ path('admin_offres')}}" class="icon-link">
+                            AJOUTER UNE OFFRE
+                        </a></b>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

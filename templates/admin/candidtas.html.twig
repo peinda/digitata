@@ -1,0 +1,96 @@
+{% extends 'layeout.html.twig' %}
+
+{% block main %}
+
+    <div class="container col-xl-10 px-4 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-3 py-3S">
+
+            <div class="col-lg-3" style="text-align: justify; font-size: 1.2em;  background-color: darkblue; ">
+                <div class="d-flex flex-column align-items-stretch bg-white" style="width: 380px;">
+                    <div class="list-group list-group-flush border-bottom scrollarea">
+                        <a href="{{ path('liste_offres')}}" class="list-group-item list-group-item-action  py-3 lh-tight" aria-current="true">
+                            <div class="d-flex w-100 ">
+                                <strong class="mb-1 ">Gestion des offres et candidats</strong>
+                            </div>
+                        </a>
+                        <a href="{{ path('admin_candidats')}}" class="list-group-item list-group-item-action active py-3 lh-tight">
+                            <div class="d-flex w-100 align-items-center justify-content-between">
+                                <strong class="mb-1">Liste des Candidats</strong>
+                            </div>
+                        </a>
+                        <a href="{{ path('admin_offres')}}" class="list-group-item list-group-item-action py-3 lh-tight">
+                            <div class="d-flex w-100 align-items-center justify-content-between">
+                                <strong class="mb-1">Publier une offre</strong>
+                            </div>
+                        </a>
+
+                        <a href="{{ path('logout')}}" class="list-group-item list-group-item-action py-3 lh-tight">
+                            <div class="d-flex w-100 align-items-center justify-content-between">
+                                <strong class="mb-1">Deconnexion</strong>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action py-3 lh-tight">
+                            <div class="d-flex w-100 align-items-center justify-content-between">
+                                <strong class="mb-1">Ecrire un message</strong>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action py-3 lh-tight" aria-current="true">
+                            <div class="d-flex w-100 align-items-center justify-content-between">
+                                <strong class="mb-1">Boite de réception</strong>
+                            </div>
+
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action py-3 lh-tight">
+                            <div class="d-flex w-100 align-items-center justify-content-between">
+                                <strong class="mb-1">Boite d'envoi</strong>
+                            </div>
+                        </a>
+
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-10 col-sm-8 col-lg-9">
+                <div class="container py-5" id="featured-3">
+
+                    <div class="row g-5 py-5">
+                        {% for candidat in candidats %}
+                            <div class="feature col-md-6">
+                                <div class="feature-icon bg-primary bg-gradient">
+                                    <svg class="bi" width="480px" height="3em" style="  background-color: darkblue;  "><use xlink:href="#collection"/></svg>
+                                </div>
+                                <h2>{{ candidat.prenom }}</h2>
+                                <div class="row justify-content-around">
+                                    <div class="col-6">
+                                        <p><b>Prenom</b>: <em>{{candidat.prenom }}</em></p>
+                                        <p><b>Nom</b>: <em>{{ candidat.nom }}</em></p>
+                                        <p><b>Telephone</b>: <em>{{ candidat.mobile}}</em></p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p><b>Adresse</b>: <em>{{ candidat.adresse }}</em></p>
+                                        <p><b>CV</b>: <em><a href="{{ asset('uploads/brochures/' ~ candidat.brochureFilename) }}">{{ candidat.brochureFilename }}</a></em></p>
+                                        <p><b>Email</b>: <em>{{ candidat.email }}</em></p>
+                                    </div>
+                                </div>
+                                <p><b>Motivation</b>: <em>{{ candidat.motivation }}</em></p>
+                                {% for user in candidat.offrePostule %}
+                                    <p><b>Offre Postulé</b>: <em>{{ user. reference}}</em></p>
+                                {% endfor %}
+                                <a href="" class="icon-link">
+                                   Contacter le candidat
+                                </a> <br>
+
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <b><a href="{{ path('admin_offres')}}" class="icon-link">
+                            AJOUTER UNE OFFRE
+                        </a></b>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'layeout.html.twig' %}
+
+{% block main %}
+
+    <div class="container col-xl-10 px-4 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-3 py-3S">
+
+            <div class="col-lg-3" style="text-align: justify; font-size: 1.2em">
+                <div class="d-flex flex-column align-items-stretch bg-white" style="width: 380px;">
+                    <div class="list-group list-group-flush border-bottom scrollarea">
+                        <a href="{{ path('liste_offres')}}" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
+                            <div class="d-flex w-100 ">
+                                <strong class="mb-1 ">Gestion des offres et candidats</strong>
+                            </div>
+                        </a>
+                        <a href="{{ path('admin_candidats')}}" class="list-group-item list-group-item-action py-3 lh-tight">
+                            <div class="d-flex w-100 align-items-center justify-content-between">
+                                <strong class="mb-1">Liste des Candidats</strong>
+                            </div>
+                        </a>
+                        <a href="{{ path('admin_offres')}}" class="list-group-item list-group-item-action py-3 lh-tight">
+                            <div class="d-flex w-100 align-items-center justify-content-between">
+                                <strong class="mb-1">Publier une offre</strong>
+                            </div>
+                        </a>
+
+                        <a href="{{ path('logout')}}" class="list-group-item list-group-item-action py-3 lh-tight">
+                            <div class="d-flex w-100 align-items-center justify-content-between">
+                                <strong class="mb-1">Deconnexion</strong>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action py-3 lh-tight">
+                            <div class="d-flex w-100 align-items-center justify-content-between">
+                                <strong class="mb-1">Ecrire un message</strong>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action py-3 lh-tight" aria-current="true">
+                            <div class="d-flex w-100 align-items-center justify-content-between">
+                                <strong class="mb-1">Boite de réception</strong>
+                            </div>
+
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action py-3 lh-tight">
+                            <div class="d-flex w-100 align-items-center justify-content-between">
+                                <strong class="mb-1">Boite d'envoi</strong>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-10 col-sm-8 col-lg-9" style="font-weight: bold">
+
+                <div class="col-lg-8 text-center text-lg-start">
+                    {{ form_start(updateoffre) }}
+                    {{ form_widget(updateoffre) }}
+                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+                        <button class=" btn btn-lg btn-primary" type="submit">Modifier l'offre</button>
+                    </div>
+                    {{ form_end(updateoffre) }}
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

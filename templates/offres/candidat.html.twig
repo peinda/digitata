@@ -1,0 +1,104 @@
+{% extends 'layeout.html.twig' %}
+
+{% block main %}
+
+    <div class="container col-xl-10 px-4 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-3 py-3S">
+
+            <div class="col-lg-3" style="text-align: justify">
+                <div class="col-lg-12">
+                    <h1 style="text-align: center">Pourquoi nous rejoindre?</h1>
+                    <p class="lead ">Entreprise de Service Numérique (ESN) spécialisée dans l'automatisation
+                        robotisée des processus métiers de nos clients</p>
+                </div>
+                <div class="col-lg-12">
+                    <h4 style="text-align: center">Nos valeurs et principes</h4>
+
+                    <div>
+                        <p class="lead ">DIGITATA-IT a pour objet le conseil, la création (conception et réalisation) et
+                            la maintenance d’applications informatiques relatives à l’automatisation des processus métiers
+                            et du développement web. L'ensemble de nos missions consiste à vous faire profiter de l’automatisation
+                            des processus métiers pour optimiser votre performance et par la même occasion votre business.</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-10 col-sm-8 col-lg-9">
+                <div class="container py-5" id="featured-3">
+
+                    <div class="row g-5 py-5">
+
+                        <div class="feature col-md-12">
+                            <div class="feature-icon bg-primary bg-gradient">
+                                <svg class="bi" width="1em" height="1em"><use xlink:href="#collection"/></svg>
+                            </div>
+                            <h2>{{ offre.posteRecherche }}</h2>
+                            <div class="row justify-content-around">
+                                <div class="col-6">
+                                    <p><b>Exp souhaitée</b>: <em>{{ offre.skills }}</em></p>
+                                    <p><b>Poste recherché</b>: <em>{{ offre.posteRecherche }}</em></p>
+                                    <p><b>Date de publication</b>: <em>{{ offre.publishedAT |date("Y-m-d") }}</em></p>
+                                </div>
+                                <div class="col-6">
+                                    <p><b>Adresse</b>: <em>{{ offre.adresse }}</em></p>
+                                    <p><b>Contrat</b>: <em>{{ offre.contratType }}</em></p>
+                                    <p><b>Debut</b>: <em>{{ offre.begginingAT |date("Y-m-d")  }}</em></p>
+                                </div>
+                            </div>
+                            <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+
+                        </div>
+
+                        <div class="col-lg-8 text-center text-lg-start" style="font-weight: bold">
+                            <h4 class="text-center">Postuler ici</h4>
+                            {{ form_start(candidat) }}
+                            {{ form_widget(candidat) }}
+                            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+
+                                <a href="{{path('politique')}}">Politique de confidentialité</a><br>
+                                <a href="{{path('condition')}}">Condition Générale d'utilisation</a><br>
+                            </div>
+
+                            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+
+                                <button class=" btn btn-lg btn-primary" type="submit">Envoyer votre candidature</button>
+                            </div>
+                            {{ form_end(candidat) }}
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+{% block javascripts %}
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+            crossorigin="anonymous"></script>
+    <script>
+    $('.custom-file-input').on('change', function() {
+         let fileName = $(this).val().split('\\').pop();
+    $(this).siblings('.custom-file-label').addClass('selected').html(fileName);
+    });
+
+    /* GESTION DU RESET */
+    function fctReset(oEvent){
+    $('.custom-file-input').each(function( index , ele) {
+    for(var i = 0; i< ele.labels.length;i++){
+    ele.labels[i].innerHTML  =  ele.labels[i].dataset.defaultLabel  }  });    }
+    $( document ).ready(function() {
+    $('.custom-file-input').each(function( index , ele) {
+    for(var i = 0; i< ele.labels.length;i++){
+    ele.labels[i].dataset.defaultLabel = ele.labels[i].innerHTML  }  });
+    $(document.forms["candidat"]).on('reset', fctReset); });
+    </script>
+{% endblock %}
+{% endblock %}
