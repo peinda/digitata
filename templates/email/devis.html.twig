@@ -1,0 +1,11 @@
+
+{% block main %}
+
+<h1>Demande de renseignement</h1>
+<p>Prenom : {{contact.firstname}}</p>
+<p>Objet du message : {{contact.objet}}</p>
+<p>Nom : {{contact.lastname}}</p>
+<p>Telephone : {{contact.phone}}</p>
+<p>e-mail : {{contact.email}}</p>
+<p>Message : {{contact.message|nl2br}}</p>
+{% endblock %}
