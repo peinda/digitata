@@ -1,0 +1,21 @@
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><element><id>UMLActor</id><coordinates><x>70</x><y>150</y><w>100</w><h>110</h></coordinates><panel_attributes>Administrateur</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>230</x><y>80</y><w>480</w><h>670</h></coordinates><panel_attributes>Application digitata-ir
+halign=center</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>250</x><y>130</y><w>240</w><h>170</h></coordinates><panel_attributes>Creer,
+ voir, modifier, 
+supprimer une offre,
+ un utilisateur,
+voir les candidats, consulter les CV
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>570</x><y>280</y><w>120</w><h>40</h></coordinates><panel_attributes>S'authentifier
+bg=red
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>480</x><y>210</y><w>150</w><h>90</h></coordinates><panel_attributes>lt=.&gt;
+&lt;&lt;includes&gt;&gt;</panel_attributes><additional_attributes>10;10;130;70</additional_attributes></element><element><id>UMLActor</id><coordinates><x>70</x><y>340</y><w>100</w><h>110</h></coordinates><panel_attributes>Collaborateur</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>260</x><y>320</y><w>240</w><h>170</h></coordinates><panel_attributes> voir, modifier, 
+son profil,
+voir les offres publiées, 
+messagerie interne
+bg=green</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>130</x><y>180</y><w>140</w><h>40</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;20;120;20</additional_attributes></element><element><id>Relation</id><coordinates><x>140</x><y>380</y><w>140</w><h>40</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;20;120;20</additional_attributes></element><element><id>Relation</id><coordinates><x>490</x><y>310</y><w>150</w><h>100</h></coordinates><panel_attributes>lt=.&gt;
+&lt;&lt;includes&gt;&gt;</panel_attributes><additional_attributes>10;80;130;10</additional_attributes></element><element><id>UMLActor</id><coordinates><x>840</x><y>560</y><w>60</w><h>110</h></coordinates><panel_attributes>Candidat</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>440</x><y>530</y><w>120</w><h>40</h></coordinates><panel_attributes>Consulte les offres
+bg=red</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>440</x><y>580</y><w>120</w><h>40</h></coordinates><panel_attributes>voir le descriptif
+bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>440</x><y>630</y><w>120</w><h>40</h></coordinates><panel_attributes>peut postuler
+bg=black</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>430</x><y>680</y><w>140</w><h>70</h></coordinates><panel_attributes>peut demander 
+la creation de compte 
+pour voir ses candifdatures 
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>550</x><y>540</y><w>320</w><h>80</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;10;300;60</additional_attributes></element><element><id>Relation</id><coordinates><x>550</x><y>580</y><w>320</w><h>40</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;20;300;20</additional_attributes></element><element><id>Relation</id><coordinates><x>550</x><y>590</y><w>320</w><h>80</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;60;300;10</additional_attributes></element><element><id>Relation</id><coordinates><x>560</x><y>590</y><w>310</w><h>130</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;110;290;10</additional_attributes></element></diagram>

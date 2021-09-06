@@ -2,9 +2,13 @@
 {% block title %} Vous êtes sur la page de contact{% endblock %}
 
 {% block main %}
-
+    <div class="my-5">
+        <a class="navbar-brand"
+           href="#projects"><img class="d-block w-100"  src="{{ asset('img/picture1.jpg') }}"  alt="Second slide"></a>
+    </div>
 <div class="jumbotron">
     <div class="container">
+
         {# {% for label, messages in app.flashes %}
         {% for message in messages %}
         <div class="alert alert-dismissible{{ label }}">
@@ -22,12 +26,14 @@
         <div class="row " style="font-weight: bold">
 
             <!---->
+            <h4 class="text-center">Page de contact</h4>
             <div class="col-md-6 text-center text-lg-start"  id="contactForm">
-                <h4 class="text-center">Page de contact</h4>
+
                 {{ form_start(contactForm) }}
 
                    <div class="col">{{ form_row(contactForm.firstname) }}</div>
                    <div class="col">{{ form_row(contactForm.lastname) }}</div>
+                    <div class="col">{{ form_row(contactForm.objet) }}</div>
 
             </div>
             <!---->

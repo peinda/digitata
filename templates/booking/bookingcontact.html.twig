@@ -1,0 +1,16 @@
+{% block main %}
+
+    <h1>Demande de rendez vous</h1>
+    <p>Prenom : {{contact.firstname}}</p>
+    <p>Objet du message : {{contact.objet}}</p>
+    {% if contact.politique  %}
+        <p>Politique: J'accepte vos politiques de confidentialité</p>
+    {% else%}
+        <p>Politique: neant</p>
+    {% endif %}
+    <p>Nom : {{contact.lastname}}</p>
+    <p>Telephone : {{contact.phone}}</p>
+    <p>e-mail : {{contact.email}}</p>
+    <p>Date de rendez vous souhaitez : {{contact.bookingDate |date("Y-m-d H:i:s")}}</p>
+    <p>Détail du rv : {{contact.message|nl2br}}</p>
+{% endblock %}

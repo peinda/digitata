@@ -1,78 +1,128 @@
 {% extends 'layeout.html.twig' %}
 
 {% block main %}
+    <div class="container-fluid" style="height:90px;"></div>
+    <div  class="bg-image"
+          style=" background-image: url('https://i.ibb.co/yXB4gvF/pexels-daria-shevtsova-1560932-1.jpg') ">
+        <div class="container-fluid  lead col-xl-12 px-4 py-5" >
+            <div  class="row justify-content-around "> <h2 class=" text-center text-black" >{{ offre.posteRecherche }}</h2></div>
+            <section >
 
-    <div class="container col-xl-10 px-4 py-5">
-        <div class="row flex-lg-row-reverse align-items-center g-3 py-3S">
-
-            <div class="col-lg-3" style="text-align: justify">
-                <div class="col-lg-12">
-                    <h1 style="text-align: center">Pourquoi nous rejoindre?</h1>
-                    <p class="lead ">Entreprise de Service Numérique (ESN) spécialisée dans l'automatisation
-                        robotisée des processus métiers de nos clients</p>
-                </div>
-                <div class="col-lg-12">
-                    <h4 style="text-align: center">Nos valeurs et principes</h4>
-
-                    <div>
-                        <p class="lead ">DIGITATA-IT a pour objet le conseil, la création (conception et réalisation) et
-                            la maintenance d’applications informatiques relatives à l’automatisation des processus métiers
-                            et du développement web. L'ensemble de nos missions consiste à vous faire profiter de l’automatisation
-                            des processus métiers pour optimiser votre performance et par la même occasion votre business.</p>
-                    </div>
-
-                </div>
-            </div>
-            <div class="col-10 col-sm-8 col-lg-9">
-                <div class="container py-5" id="featured-3">
-
-                    <div class="row g-5 py-5">
-
-                        <div class="feature col-md-12">
-                            <div class="feature-icon bg-primary bg-gradient">
-                                <svg class="bi" width="1em" height="1em"><use xlink:href="#collection"/></svg>
-                            </div>
-                            <h2>{{ offre.posteRecherche }}</h2>
-                            <div class="row justify-content-around">
-                                <div class="col-6">
-                                    <p><b>Exp souhaitée</b>: <em>{{ offre.skills }}</em></p>
-                                    <p><b>Poste recherché</b>: <em>{{ offre.posteRecherche }}</em></p>
-                                    <p><b>Date de publication</b>: <em>{{ offre.publishedAT |date("Y-m-d") }}</em></p>
-                                </div>
-                                <div class="col-6">
-                                    <p><b>Adresse</b>: <em>{{ offre.adresse }}</em></p>
-                                    <p><b>Contrat</b>: <em>{{ offre.contratType }}</em></p>
-                                    <p><b>Debut</b>: <em>{{ offre.begginingAT |date("Y-m-d")  }}</em></p>
-                                </div>
-                            </div>
-                            <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-
+                <div class="row  g-5 py-3">
+                    <aside class="feature col-md-4" >
+                        <div class="col-lg-12 text-white" style="text-align: justify; background-color: #0a0344;">
+                            <h4 class="  text-center text-white" style="  background-color: #0a0344     ;">Résumé de l'offre</h4>
+                            <p>Adresse :<em>{{ offre.adresse }}</em></p>
+                            <p>Poste :<em>{{ offre.posteRecherche }}</em></p>
+                            <p>Début :<em>{{ offre.begginingAT |date("Y-m-d")  }}</em></p>
+                            <p>Expérience :<em>{{ offre.skills }}</em></p>
+                            <p>Référence :<em>{{ offre.reference }}</em></p>
+                            <p>Contrat :<em>{{ offre.contratType }}</em></p>
+                            <p>Salaire :<em>{{ offre.payment }}</em></p>
+                            <p>Publié :<em>{{ offre.publishedAT |date("Y-m-d") }}</em></p>
                         </div>
 
-                        <div class="col-lg-8 text-center text-lg-start" style="font-weight: bold">
-                            <h4 class="text-center">Postuler ici</h4>
-                            {{ form_start(candidat) }}
-                            {{ form_widget(candidat) }}
-                            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+                    </aside>
+                    <article class="feature col-md-8">
+                        <div class="col-lg-12">
 
-                                <a href="{{path('politique')}}">Politique de confidentialité</a><br>
-                                <a href="{{path('condition')}}">Condition Générale d'utilisation</a><br>
+                            <div class="text-white" style="font-weight: bold; text-align: justify; ">
+                                <ul class="nav nav-tabs " id="le-tab" role="tablist">
+                                    <li class="nav-item ">
+                                        <a class="nav-link active fs-3 text-red" id="candidature-tab" data-toggle="tab" href="#candidature" role="tab"
+                                        aria-controls="home" aria-selected="true">
+                                            Candidature
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link fs-3" id="information-tab" data-toggle="tab" href="#information" role="tab"
+                                           aria-controls="information" aria-selected="false">
+                                            Informations
+                                        </a>
+                                    </li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link fs-3" id="pk-tab" data-toggle="tab" href="#pk" role="tab"
+                                           aria-controls="pk" aria-selected="false">
+                                            Pourquoi vous?
+                                        </a>
+                                    </li>
+                                </ul>
+                                {{ form_start(candidat) }}
+                                <div class="tab-content" id="continue">
+
+                                    <div class="tab-pane fade show active" id="candidature" role="tabpanel" aria-labelledby="candidature-tab">
+                                        <div class="col-lg-8 text-center text-lg-start" >
+                                            <div class="container-fluid" style="height:50px;"></div>
+                                                <p class="text-center fs-3 text-black">Votre CV ICI</p>
+                                            {{ form_widget(candidat.brochure) }}
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade show" id="information" role="tabpanel" aria-labelledby="information-tab">
+                                        <div class="col-lg-8 text-center text-lg-start" >
+                                            <section class="py-5 text-center container">
+                                                <div class="row py-lg-5">
+                                                    <div class="col-lg-6 col-md-8 mx-auto">
+                                                       <p class="text-center fs-3 text-black">VOTRE NOM</p>
+                                                        {{ form_widget(candidat.nom) }}
+                                                        <p class="text-center fs-3 text-black">VOTRE PRENOM</p>
+                                                        {{ form_widget(candidat.prenom) }}
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-8 mx-auto">
+                                                        <p class="text-center fs-3 text-black">VOTRE EMAIL</p>
+                                                        {{ form_widget(candidat.email) }}
+                                                        <p class="text-center fs-3 text-black">VOTRE MOBILE</p>
+                                                        {{ form_widget(candidat.mobile) }}
+                                                        <p class="text-center fs-3 text-black">VOTRE ADRESSE</p>
+                                                        {{ form_widget(candidat.adresse) }}
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade show" id="pk" role="tabpanel" aria-labelledby="pk-tab">
+                                        <div class="col-lg-8 text-center text-lg-start" >
+                                            <div class="container-fluid" style="height:50px;"></div>
+                                            <p class="text-center fs-3 text-black">Dites nous plus sur vous</p>
+                                            {{ form_widget(candidat.motivation) }}
+                                            <div class="container-fluid" style="height:10px;"></div>
+                                            <button class=" btn btn-lg btn-primary" type="submit">Envoyer votre candidature</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <section class="py-5 text-center container">
+                                                <div class="row py-lg-5">
+                                                    <div class="col-lg-6 col-md-8 mx-auto">
+                                                        <p>
+                                                            <a href="{{ path('offre_detail', {'id': offre.id})}}" class="btn btn-primary my-2">Précedent</a>
+                                                            {# <a href="#"  class="btn btn-secondary my-2">Suivant</a> #}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                </section>
+                                {{ form_end(candidat) }}
+                                
+                                   {#  <div class="col-lg-8 text-center text-lg-start" >
+                                        {{ form_start(candidat) }}
+                                        {{ form_widget(candidat) }}
+                                        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+
+                                            <a href="{{path('politique')}}">Politique de confidentialité</a><br>
+                                            <a href="{{path('condition')}}">Condition Générale d'utilisation</a><br>
+                                        </div>
+
+                                        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+
+                                            <button class=" btn btn-lg btn-primary" type="submit">Envoyer votre candidature</button>
+                                        </div>
+                                        {{ form_end(candidat) }}
+
+                                    </div> #}
                             </div>
-
-                            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-
-                                <button class=" btn btn-lg btn-primary" type="submit">Envoyer votre candidature</button>
-                            </div>
-                            {{ form_end(candidat) }}
-
                         </div>
+                    </article>
 
-
-                    </div>
                 </div>
-            </div>
-
-
+            </section>
         </div>
     </div>
 {% block javascripts %}

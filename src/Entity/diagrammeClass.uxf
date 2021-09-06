@@ -1,0 +1,53 @@
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>160</x><y>190</y><w>170</w><h>190</h></coordinates><panel_attributes>Utilisateur
+-
+noUtilisateur
+nom
+premon
+username
+telepnone
+email
+motDePasse
+administrateur
+--
+getter() &amp; setter()
+operation()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>440</x><y>10</y><w>100</w><h>30</h></coordinates><panel_attributes>Admin</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>230</x><y>20</y><w>230</w><h>190</h></coordinates><panel_attributes>lt=&lt;&lt;.
+extends</panel_attributes><additional_attributes>10;170;10;10;210;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>470</x><y>300</y><w>130</w><h>150</h></coordinates><panel_attributes>Candidat
+-
+noCandidat
+nom
+premon
+telepnone
+email
+adresse
+motivation
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>880</x><y>300</y><w>170</w><h>190</h></coordinates><panel_attributes>Offre
+-
+noOffre
+Reference
+poleConcerne
+Adresse
+typeDeContrat
+payement
+skills
+dateDebut
+datePublish
+description
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>590</x><y>330</y><w>310</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=*
+postule &gt;</panel_attributes><additional_attributes>10;20;290;20</additional_attributes></element><element><id>Relation</id><coordinates><x>590</x><y>390</y><w>310</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=*
+m2=*
+consulter &gt;</panel_attributes><additional_attributes>10;20;290;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>690</x><y>580</y><w>120</w><h>70</h></coordinates><panel_attributes>Candidater
+-
+-datePostule
+-offrePostule</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>570</x><y>440</y><w>140</w><h>200</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=*
+Postule  &gt;</panel_attributes><additional_attributes>10;10;120;180</additional_attributes></element><element><id>Relation</id><coordinates><x>800</x><y>480</y><w>140</w><h>160</h></coordinates><panel_attributes>lt=-
+m1=*
+m2=1
+concerne &gt;</panel_attributes><additional_attributes>10;140;110;10</additional_attributes></element><element><id>Relation</id><coordinates><x>530</x><y>0</y><w>380</w><h>320</h></coordinates><panel_attributes>lt=-
+m1=*
+m2=*
+publie &gt;</panel_attributes><additional_attributes>10;20;360;20;360;300</additional_attributes></element></diagram>

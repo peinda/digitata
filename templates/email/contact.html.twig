@@ -3,6 +3,12 @@
 
 <h1>Demande de renseignement</h1>
 <p>Prenom : {{contact.firstname}}</p>
+<p>Objet du message : {{contact.objet}}</p>
+{% if contact.politique  %}
+<p>Politique: J'accepte vos politiques de confidentialité</p>
+ {% else%}
+<p>Politique: neant</p>
+    {% endif %}
 <p>Nom : {{contact.lastname}}</p>
 <p>Telephone : {{contact.phone}}</p>
 <p>e-mail : {{contact.email}}</p>

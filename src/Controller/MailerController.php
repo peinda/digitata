@@ -25,20 +25,12 @@ class MailerController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-           $contactNotification ->notify($contact);
+            $contactNotification ->notify($contact);
 
-          $this->addFlash("success", "Votre email a été bien envoyé et 
+            $this->addFlash("success", "Votre email a été bien envoyé et 
           nous allons vous répondre dans un bref délai.");
 
-            /*$message = (new Email())
-                ->from('noreply@digitata-it.com')
-                ->to($contact->getEmail())
-                ->subject('reponse automatique')
-                ->text('votre message a bien été envoyé.  Nous allons vous répondre dans un bref délai.',
-                    'text/plain');
-            $mailer->send($message);*/
-
-           return  $this->redirectToRoute('contact');
+            return  $this->redirectToRoute('contact');
         }
 
 
